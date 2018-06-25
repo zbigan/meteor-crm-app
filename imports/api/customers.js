@@ -5,38 +5,36 @@ import { check } from 'meteor/check';
 export const Customers = new Mongo.Collection('customers');
 
 ProductSchema = new SimpleSchema({
-    
+    title: {
+        type: String,
+    },
+    price: {
+        type: String
+    }
 });
 
 CustomerSchema = new SimpleSchema({
     firstName: {
         type: String,
     },
-
     lastName: {
         type: String,
     },
-
     age: {
         type: String,
     },
-
     email: {
         type: String,
     },
-
     orders: {
         type: [ProductSchema],
     },
-
     createdAt: {
         type: Date,
     },
-
     owner: {
         type: String,
     },
-
     username: {
         type: String,
     },

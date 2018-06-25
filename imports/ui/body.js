@@ -1,13 +1,16 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Customers } from '../api/customers.js';
+import { Products } from '../api/products.js';
 import { Session } from 'meteor/session';
 
 import './customer.js';
+import './product.js';
 import './body.html';
 
 Template.body.onCreated(function bodyOnCreated(){
     Meteor.subscribe('customers');
+    Meteor.subscribe('products');    
 });
 
 //infinite scroll logic
