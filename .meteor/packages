@@ -19,8 +19,10 @@ shell-server@0.3.1            # Server-side component of the `meteor shell` comm
 
 accounts-ui
 accounts-password
-kadira:flow-router
 kadira:blaze-layout
 reactive-dict
 perak:fuzzy-search
-aldeed:simple-schema
+kadira:flow-router
+aldeed:autoform
+cultofcoders:grapher
+aldeed:collection2@3.0.0
