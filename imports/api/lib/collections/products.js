@@ -39,7 +39,6 @@ ProductSchema = new SimpleSchema({
         autoform: {
             type: "hidden"
         }
-        
     }
 }
     , { check }
