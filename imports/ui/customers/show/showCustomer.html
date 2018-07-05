@@ -1,9 +1,11 @@
 <template name="showCustomer">
     <div class="container">
-        <h1>{{customer}}</h1>
-        <!--{{#each customer}}
-            <h2>{{firstName}}</h2>                
-            <h2>{{lastName}}</h2>
-        {{/each}}-->
+        <!--{{#each customer}}-->
+            <h2>{{customer.firstName}}</h2>                
+            <h2>{{customer.lastName}}</h2>
+            <h2>{{customer.age}}</h2>
+            <h2>{{customer.email}}</h2>            
+        <!--{{/each}}-->
     </div>
+    <a class="btn btn-secondary" href="{{currentUrl}}/edit">Edit</a>
 </template>

@@ -1,12 +1,16 @@
 <template name="indexProduct">
     <div class="container">
 
+        <a href="/products/new" class="btn btn-secondary">New Product</a>
+        <br>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Product Name</th>
                     <th scope="col">Price</th>     
-                    <th scope="col">Delete</th>                                                                                    
+                    <th scope="col">Delete</th> 
+                    <th scope="col">More info</th>   
+                    <th scope="col">Edit</th>                                                                                   
                 </tr>
             </thead>
             <tbody>
@@ -16,6 +20,12 @@
                         <td>{{price}}</td>
                         <td>
                             <button class="delete">&times;</button>        
+                        </td>
+                        <td>
+                            <a href="/products/{{_id}}">More Info</a>                         
+                        </td>  
+                        <td>
+                            <a href="/products/{{_id}}/edit">Edit</a>                         
                         </td>
                     </tr>
                 {{/each}}                    

@@ -21,6 +21,13 @@ FlowRouter.route('/customers/new', {
     }
 });
 
+FlowRouter.route('/customers/:id/edit', {
+    name: 'editCustomer',
+    action: function(params, queryParams) {
+        BlazeLayout.render('mainLayout', {main: 'editCustomer'});
+    }
+});
+
 FlowRouter.route('/customers/:id', {
     name: 'showCustomer',
     action: function(params, queryParams) {
@@ -39,5 +46,26 @@ FlowRouter.route('/products/new', {
     name: 'newProduct',
     action: function(params, queryParams) {
         BlazeLayout.render('mainLayout', {main: 'newProduct'});
+    }
+});
+
+FlowRouter.route('/products/:id', {
+    name: 'showProduct',
+    action: function(params, queryParams) {
+        BlazeLayout.render('mainLayout', {main: 'showProduct'});
+    }
+});
+
+FlowRouter.route('/products/:id/edit', {
+    name: 'editProduct',
+    action: function(params, queryParams) {
+        BlazeLayout.render('mainLayout', {main: 'editProduct'});
+    }
+});
+
+FlowRouter.route('/orders/new', {
+    name: 'newOrder',
+    action: function(params, queryParams) {
+        BlazeLayout.render('mainLayout', {main: 'newOrder'});
     }
 });

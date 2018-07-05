@@ -3,7 +3,7 @@ import SimpleSchema from 'simpl-schema';
 import { check } from 'meteor/check';
 import { Meteor } from 'meteor/meteor';
 
-SimpleSchema.extendOptions(['autoform', 'autovalue']);
+SimpleSchema.extendOptions(['autoform']);
 
 export const Customers = new Mongo.Collection('customers');
 
@@ -37,27 +37,29 @@ CustomerSchema = new SimpleSchema({
             type: "hidden"
         }
     },
-    createdAt: {
-        type: Date,
-        label: "Created At",
-        autovalue: () => {
-            return new Date()
-        },
-        autoform: {
-            type: "hidden"
-        }
-    }
+    // createdAt: {
+    //     type: Date,
+    //     label: "Created At",
+    //     optional: true,        
+    //     // autovalue: () => {
+    //     //     return new Date()
+    //     // },
+    //     autoform: {
+    //         // type: "hidden"
+    //         omit: true
+    //     }
+    // }
 }
     // , { tracker: Tracker }
-    , { check }
+    // , { check }
 );
 
 
-Customers.allow({
-    insert: function () { FlowRouter.go('/customers'); return true;},
-    update: function () { return true; },
-    remove: function () { return true; }
-});
+// Customers.allow({
+//     insert: function () { FlowRouter.go('/customers'); return true;},
+//     update: function () { return true; },
+//     remove: function () { return true; }
+// });
 
 
 

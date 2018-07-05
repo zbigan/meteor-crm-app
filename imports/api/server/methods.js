@@ -1,6 +1,8 @@
-import  Customers  from '../lib/collections/customers.js';
+import { Customers }  from '../lib/collections/customers.js';
 import { Products } from '../lib/collections/products.js';
 import { check } from 'meteor/check';
+import { createQuery } from 'meteor/cultofcoders:grapher';
+
 
 
 // if(Meteor.isServer) {
@@ -10,18 +12,31 @@ import { check } from 'meteor/check';
 // }
 
 Meteor.methods({
+    'customers.getFullName' (id) {
+        let customerFullName = Customers.createQuery({
+            fullName: 1,
+        });
+        return customerFullName.fetchOne();
+    },
+
     'customers.getOne' (id) {
-        const customer = Customers.createQuery({
-            $filters: {
-                _id: id,
-            },
+        let customer = Customers.createQuery({
+            $filters: {_id: id},
             firstName: 1,
             lastName: 1,
             age: 1,
             email: 1
         });
+        return customer.fetchOne();
+    },
 
-        return customer.fetch();
+    'products.getOne' (id) {
+        let product = Products.createQuery({
+            $filters: {_id: id},
+            name: 1,
+            price: 1
+        });
+        return product.fetchOne();
     },
 
     'customers.insert'(firstName, lastName, age, email) {

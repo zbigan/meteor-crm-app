@@ -1,6 +1,7 @@
 <template name="indexCustomer">
     <div class="container">
-
+        <a href="/customers/new" class="btn btn-secondary">New Customer</a>       
+        <br>     
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -10,7 +11,8 @@
                     <th scope="col">Email</th>
                     <th scope="col">Orders</th>
                     <th scope="col">Delete</th>   
-                    <th scope="col">More info</th>                                                                                                     
+                    <th scope="col">More info</th>   
+                    <th scope="col">Edit</th>                                                                                                                      
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +28,10 @@
                         </td>
                         <td>
                             <a href="/customers/{{_id}}">More Info</a>                         
-                        </td>                        
+                        </td>  
+                        <td>
+                            <a href="/customers/{{_id}}/edit">Edit</a>                         
+                        </td>                      
                     </tr>
                 {{/each}}                    
             </tbody>
