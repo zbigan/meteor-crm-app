@@ -1,0 +1,5 @@
+<template name="editOrder">
+{{#if currentUser}}
+      {{> quickForm collection="Orders" doc=customer id="updateOrderForm" type="update"}}
+{{/if}}
+</template>

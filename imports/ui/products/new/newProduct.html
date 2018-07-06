@@ -1,3 +1,5 @@
 <template name="newProduct">
+{{#if currentUser}}
       {{> quickForm collection="Products" id="newProductForm" type="insert"}}
+{{/if}}
 </template>

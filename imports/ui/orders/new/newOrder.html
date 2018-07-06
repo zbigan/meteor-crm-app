@@ -1,3 +1,26 @@
 <template name="newOrder">
+{{#if currentUser}}
       {{> quickForm collection="Orders" id="newOrdertForm" type="insert"}}
+      
+      <!-- <h1>{{customerOptions}}</h1> -->
+      <!-- {{#autoForm collection="Orders" id="insertOrdersForm" type="insert"}}
+            <fieldset>
+                  <legend>Add an Order</legend>
+                  {{> afFieldInput name="customer" options=customerOptions}}
+                  {{> afQuickField name='product'}}
+                  {{> afQuickField name='quantity'}}
+                   <div class="form-group{{#if afFieldIsInvalid name='cost'}} has-error{{/if}}">
+                        <div class="input-group">
+                              <span class="input-group-addon">$</span>
+                              {{> afFieldInput name='cost'}}
+                              <span class="input-group-addon">/each</span>
+                        </div> -->
+                        <!-- {{#if afFieldIsInvalid name='cost'}}
+                              <span class="help-block">{{afFieldMessage name='cost'}}</span>
+                        {{/if}} -->
+                  <!-- </div> -->
+            <!-- </fieldset>
+            <button type="submit" class="btn btn-primary">Insert</button> -->
+      <!-- {{/autoForm}} -->
+{{/if}}
 </template>

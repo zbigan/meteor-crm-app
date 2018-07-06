@@ -1,7 +1,9 @@
 <template name="showProduct">
+{{#if currentUser}}
     <div class="container">
         <h2>{{product.name}}</h2>                
         <h2>{{product.price}}</h2>
     </div>
     <a class="btn btn-secondary" href="{{currentUrl}}/edit">Edit</a>
+{{/if}}
 </template>

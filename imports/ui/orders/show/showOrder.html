@@ -1,0 +1,13 @@
+<template name="showOrder">
+{{#if currentUser}}
+    <div class="container">
+        <!--{{#each order}}-->
+            <h2>{{order.customer}}</h2>                
+            <h2>{{order.product}}</h2>
+            <h2>{{order.quantity}}</h2>
+            <h2>willbe</h2>            
+        <!--{{/each}}-->
+    </div>
+    <a class="btn btn-secondary" href="{{currentUrl}}/edit">Edit</a>
+{{/if}}
+</template>

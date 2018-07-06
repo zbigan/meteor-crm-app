@@ -20,10 +20,9 @@ Customers.addReducers({
     fullName: {
         body: {
             firstName: 1,
-            lastName: 1
+            lastName: 1,
         },
         reduce(object) {
-
             return `${object.firstName} ${object.lastName}`;
         }
     }

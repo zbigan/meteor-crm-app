@@ -1,37 +1,35 @@
-<template name="indexCustomer">
+<template name="indexOrder">
 {{#if currentUser}}
     <div class="container">
-        <a href="/customers/new" class="btn btn-secondary">New Customer</a>       
+        <a href="/orders/new" class="btn btn-secondary">New Order</a>       
         <br>     
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Age</th>                            
-                    <th scope="col">Email</th>
-                    <th scope="col">Orders</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total price: </th>                            
                     <th scope="col">Delete</th>   
                     <th scope="col">More info</th>   
                     <th scope="col">Edit</th>                                                                                                                      
                 </tr>
             </thead>
             <tbody>
-                {{#each customers}}                        
+                {{#each orders}}                        
                     <tr>
-                        <td>{{firstName}}</td>
-                        <td>{{lastName}}</td>
-                        <td>{{age}}</td>    
-                        <td>{{email}}</td>
-                        <td>{{orders}}</td>
+                        <td>{{cutomer}}</td>
+                        <td>{{product}}</td>
+                        <td>{{quantity}}</td>    
+                        <td>willbe</td>    
                         <td>
                             <button class="delete">&times;</button>        
                         </td>
                         <td>
-                            <a href="/customers/{{_id}}">More Info</a>                         
+                            <a href="/orders/{{_id}}">More Info</a>                         
                         </td>  
                         <td>
-                            <a href="/customers/{{_id}}/edit">Edit</a>                         
+                            <a href="/orders/{{_id}}/edit">Edit</a>                         
                         </td>                      
                     </tr>
                 {{/each}}                    

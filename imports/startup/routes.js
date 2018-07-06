@@ -69,3 +69,24 @@ FlowRouter.route('/orders/new', {
         BlazeLayout.render('mainLayout', {main: 'newOrder'});
     }
 });
+
+FlowRouter.route('/orders', {
+    name: 'indexOrder',
+    action: function(params, queryParams) {
+        BlazeLayout.render('mainLayout', {main: 'indexOrder'});
+    }
+});
+
+FlowRouter.route('/orders/:id', {
+    name: 'showOrder',
+    action: function(params, queryParams) {
+        BlazeLayout.render('mainLayout', {main: 'showOrder'});
+    }
+});
+
+FlowRouter.route('/orders/:id/edit', {
+    name: 'editOrder',
+    action: function(params, queryParams) {
+        BlazeLayout.render('mainLayout', {main: 'editOrder'});
+    }
+});

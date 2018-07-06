@@ -1,17 +1,16 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Session } from 'meteor/session';
-import { Customers } from '../../../api/lib/collections/customers.js';
+import { Orders } from '../../../api/lib/collections/orders.js';
 
-import './indexCustomer.html';
+import './indexOrder.html';
 
 if (! Meteor.userId()) {
     Bert.alert('Not-authorized', 'danger', 'growl-top-right');
 }
 
-
-Template.indexCustomer.onCreated(function bodyOnCreated(){
-    Meteor.subscribe('customers');
+Template.indexOrder.onCreated(function bodyOnCreated(){
+    Meteor.subscribe('orders');
 });
 
 //infinite scroll logic
@@ -35,16 +34,16 @@ if(Meteor.isClient) {
     });
 }
 
-Template.indexCustomer.events({
+Template.indexOrder.events({
     'click .delete'() {
-        Meteor.call('customers.remove', this._id);
+        Meteor.call('orders.remove', this._id);
     },
 });
 
 
-Template.indexCustomer.helpers({
-    customers(){
-        return Customers.find({}, { 
+Template.indexOrder.helpers({
+    orders(){
+        return Orders.find({}, { 
             sort: { createdAt: -1 }, 
             // limit: Session.get("loadLimit")
         }

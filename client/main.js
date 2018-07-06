@@ -12,6 +12,9 @@ import '../imports/ui/products/show/showProduct.js';
 import '../imports/ui/products/edit/editProduct.js';
 
 import '../imports/ui/orders/new/newOrder.js';
+import '../imports/ui/orders/index/indexOrder.js';
+import '../imports/ui/orders/show/showOrder.js';
+import '../imports/ui/orders/edit/editOrder.js';
 
 
 import '../imports/ui/root-page/rootPage.js';

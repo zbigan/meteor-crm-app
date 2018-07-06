@@ -1,4 +1,5 @@
 <template name="showCustomer">
+{{#if currentUser}}
     <div class="container">
         <!--{{#each customer}}-->
             <h2>{{customer.firstName}}</h2>                
@@ -8,4 +9,5 @@
         <!--{{/each}}-->
     </div>
     <a class="btn btn-secondary" href="{{currentUrl}}/edit">Edit</a>
+{{/if}}
 </template>

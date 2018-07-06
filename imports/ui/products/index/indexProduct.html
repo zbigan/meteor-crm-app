@@ -1,4 +1,5 @@
 <template name="indexProduct">
+{{#if currentUser}}
     <div class="container">
 
         <a href="/products/new" class="btn btn-secondary">New Product</a>
@@ -32,4 +33,5 @@
             </tbody>
         </table>
     </div>
+{{/if}}
 </template>

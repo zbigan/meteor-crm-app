@@ -1,7 +1,7 @@
 import { Customers }  from '../lib/collections/customers.js';
 import { Products } from '../lib/collections/products.js';
+import { Orders } from '../lib/collections/orders.js';
 import { check } from 'meteor/check';
-import { createQuery } from 'meteor/cultofcoders:grapher';
 
 
 
@@ -12,11 +12,32 @@ import { createQuery } from 'meteor/cultofcoders:grapher';
 // }
 
 Meteor.methods({
-    'customers.getFullName' (id) {
+    'customers.getFullNamesForSchema' () {
         let customerFullName = Customers.createQuery({
             fullName: 1,
         });
-        return customerFullName.fetchOne();
+        let fetched = customerFullName.fetch();
+        let readyForSchema = [];
+        fetched.forEach(element => {
+            readyForSchema.push(
+                {label: element.fullName, value: element.fullName}
+            );
+        });
+        return readyForSchema;
+    },
+
+    'products.getProductNamesForSchema' () {
+        let products = Products.createQuery({
+            name: 1,
+        });
+        let fetched = products.fetch();
+        let readyForSchema = [];
+        fetched.forEach(element => {
+            readyForSchema.push(
+                {label: element.name, value: element.name}
+            );
+        });
+        return readyForSchema;
     },
 
     'customers.getOne' (id) {
@@ -37,6 +58,16 @@ Meteor.methods({
             price: 1
         });
         return product.fetchOne();
+    },
+
+    'orders.getOne' (id) {
+        let order = Orders.createQuery({
+            $filters: {_id: id},
+            customer: 1,
+            product: 1,
+            quantity: 1
+        });
+        return order.fetchOne();
     },
 
     'customers.insert'(firstName, lastName, age, email) {
@@ -86,7 +117,12 @@ Meteor.methods({
     'products.remove'(productId) {
         check(productId, String);
         
-        let removed = Products.remove(productId);
-        return removed;
+        Products.remove(productId);
+    },
+
+    'orders.remove'(orderId) {
+        check(orderId, String);
+        
+        Orders.remove(ordertId);
     },
 });

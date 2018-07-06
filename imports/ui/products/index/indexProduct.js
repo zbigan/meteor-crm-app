@@ -4,31 +4,35 @@ import { Session } from 'meteor/session';
 
 import './indexProduct.html';
 
+if (! Meteor.userId()) {
+    Bert.alert('Not-authorized', 'danger', 'growl-top-right');
+}
+
 
 Template.indexProduct.onCreated(function bodyOnCreated(){
     Meteor.subscribe('products');
 });
 
 //infinite scroll logic
-// if(Meteor.isClient) {
+if(Meteor.isClient) {
     
-//     Session.set("loadLimit", 4);
+    Session.set("loadLimit", 4);
 
-//     lastScrollTop = 0;
+    lastScrollTop = 0;
  
-//     $(window).scroll(function(event){
-//         //test if we are near the bottom of the window
-//         if($(window).scrollTop() + $(window).height() > $(document).height() - 10) {
-//             //where we are in the page?
-//             const scrollTop = $(this).scrollTop();
-//             //test if we are going down
-//             if(scrollTop > lastScrollTop) {
-//                 Session.set("loadLimit", Session.get("loadLimit") + 2);
-//             }
-//             lastScrollTop = scrollTop;
-//         }
-//     });
-// }
+    $(window).scroll(function(event){
+        //test if we are near the bottom of the window
+        if($(window).scrollTop() + $(window).height() > $(document).height() - 10) {
+            //where we are in the page?
+            const scrollTop = $(this).scrollTop();
+            //test if we are going down
+            if(scrollTop > lastScrollTop) {
+                Session.set("loadLimit", Session.get("loadLimit") + 2);
+            }
+            lastScrollTop = scrollTop;
+        }
+    });
+}
 
 Template.indexProduct.events({
     'click .delete'() {
